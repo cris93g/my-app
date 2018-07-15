@@ -1,0 +1,24 @@
+
+div.container {
+    display: flex;
+    justify-content: space-between;
+   margin-bottom: 0;
+    padding:0;
+    
+}
+nav.navbar .navbar-default{
+    margin-bottom:0;
+    
+}
+.navbar-default .navbar-header{
+   margin:0;
+   padding:0;
+}
+#root > div > nav{
+    margin-bottom: 0;
+}
+.vert-align {
+    top:0;
+    position: fixed;
+    z-index:100;
+}

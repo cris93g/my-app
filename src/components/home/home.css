@@ -1,0 +1,33 @@
+.Containers .first {
+  display: flex;
+  height: 35vh;
+  width: 100%;
+}
+
+.Containers .first {
+  display: flex;
+  height: 30vh;
+  width: 100%;
+}
+
+.Containers .second {
+  display: flex;
+  height: 30vh;
+  width: 100%;
+}
+/* .Containers .second #accersories {
+  display: flex;
+  height: 25vh;
+  width: 50%;
+} */
+
+.Containers .third {
+  display: flex;
+  height: 30vh;
+  width: 100%;
+}
+.Containers .third #games {
+  display: flex;
+  height: 25vh;
+  width: 50%;
+}
