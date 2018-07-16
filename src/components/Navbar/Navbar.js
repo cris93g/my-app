@@ -20,9 +20,9 @@ export default class CustomNavbar extends Component {
               <Link to="/Home"> Home</Link>
             </NavItem>
 
-            <NavItem eventKey={2} href="#">
+            {/* <NavItem eventKey={2} href="#"> */}
               <Link to="/All">ITEMS</Link>
-            </NavItem>
+            {/* </NavItem> */}
           </Nav>
           <Nav pullRight>
             <NavItem eventKey={1} href="#">

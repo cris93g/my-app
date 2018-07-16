@@ -18,7 +18,7 @@ class Cart extends Component {
   }
   
   render() {
-      console.log('cart', this.props.cart); //no touchy
+      console.log('cart', this.props.cart); 
       return (
           <div className="cart-app" >
               <h2 className='title'  >Welcome To Your Cart!</h2>
@@ -27,10 +27,10 @@ class Cart extends Component {
                   {this.props.cart.map((items, i) => {
                       return (
                           <div key={i} className="item">
-                              <img src={items.img} alt={items.title} className='product-image' />
+                              <img src={items.img_url} alt={items.title} className='product-image' />
                               <p>Item: #{items.item_id}</p>
                               <p>Description: {items.name}</p>
-                              <p className="price">Product Price: ${items.price}.00</p>
+                              <p className="price">Product Price: {items.price}</p>
                               <button className="prod-button" onClick={() => this.props.removeFromCart(items.item_id)} >I changed my mind</button>
                           </div>
                       )

@@ -11,14 +11,14 @@ import Acessory from "./components/Acessory/Acessory";
 import Tablet from "./components/Tablet/Tablet";
 export default (
   <Switch>
-    <Route component={Desktop} exact path="/Desktop" />
-    <Route component={Laptop} exact path="/Laptop" />
-    <Route component={Hardware} exact path="/Hardware" />
-    <Route component={Acessory} exact path="/acessory" />
-    <Route component={Tablet} exact path="/Tablet" />
-    <Route component={Home} exact path="/Home" />
+    <Route component={Desktop}  path="/Desktop" />
+    <Route component={Laptop}  path="/Laptop" />
+    <Route component={Hardware}  path="/Hardware" />
+    <Route component={Acessory} path="/acessory" />
+    <Route component={Tablet}  path="/Tablet" />
+    <Route component={Home} exact path="/" />
     <Route component={Items} path="/All" />
-    <Route component={Profile} exact path="/Profile" />
+    <Route component={Profile}  path="/Profile" />
     <Route component={Cart} path="/Cart" />
   </Switch>
 );

@@ -33,7 +33,7 @@ function Footer({ children }) {
 account_circle
 </i>
 </Link>
-        <Link to="/Home">
+        <Link to="/">
           <i class="material-icons md-60">home</i>
         </Link>
         <Link to="/Cart">

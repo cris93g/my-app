@@ -1,8 +1,8 @@
 module.exports = {
   getItems(req, res) {
     const db = req.app.get("db");
-    db.getItems
-      .find()
+    db.getItems()
+      
       .then(items => res.status(200).json(items))
       .catch(console.log);
   },
