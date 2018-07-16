@@ -9,7 +9,7 @@ export default class CustomNavbar extends Component {
       <Navbar default collapseOnSelect>
         <Navbar.Header>
           <Navbar.Brand>
-            <Link to="/Home">COMPUTER SPOT</Link>
+            <Link to="/">COMPUTER SPOT</Link>
           </Navbar.Brand>
           <Navbar.Toggle />
         </Navbar.Header>
@@ -17,11 +17,11 @@ export default class CustomNavbar extends Component {
         <Navbar.Collapse>
           <Nav>
             <NavItem eventKey={1} href="#">
-              <Link to="/Home"> Home</Link>
+              <Link to="/"> Home</Link>
             </NavItem>
 
             {/* <NavItem eventKey={2} href="#"> */}
-              <Link to="/All">ITEMS</Link>
+            <Link to="/All">ITEMS</Link>
             {/* </NavItem> */}
           </Nav>
           <Nav pullRight>
