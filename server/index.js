@@ -7,7 +7,7 @@ const { json } = require("body-parser");
 const control = require("./controllers");
 const passport = require("passport");
 const stripe = require("stripe")("sk_test_TwTTlid3GeOG6YPydOjARw4I");
-
+app.use(express.static(__dirname + "/../build"));
 const app = express();
 app.use(cors());
 app.use(json());
