@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { getTablet ,addToCart} from "../../redux/ducks/itemsReducer";
+import { getTablet, addToCart } from "../../redux/ducks/itemsReducer";
 import { Link } from "react-router-dom";
 
 class Items extends Component {
@@ -34,7 +34,12 @@ class Items extends Component {
                     </ul>
                     <br />
                     <Link to="/Cart">
-                      <button  className="prod-button" onClick={() => this.props.addToCart(item.item_id)}>Buy now!</button>
+                      <button
+                        className="prod-button"
+                        onClick={() => this.props.addToCart(item.item_id)}
+                      >
+                        Buy now!
+                      </button>
                     </Link>
                   </div>
                 </div>
@@ -50,8 +55,10 @@ class Items extends Component {
   }
 }
 const mapStateToProps = state => {
-  return {items: state.items,
-    cart: state.cart}
+  return {
+    items: state.items,
+    cart: state.cart
+  };
 };
 
 export default connect(

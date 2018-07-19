@@ -10,15 +10,15 @@ var style = {
   position: "fixed",
   left: "0",
   bottom: "0",
-  height: "50px",
+  height: "45px",
   width: "100%"
 };
 
 var phantom = {
-  display: "block",
-  padding: "20px",
-  height: "40px",
-  width: "100%"
+  // display: "block",
+  // padding: "20px",
+  height: "40px"
+  // width: "100%"
 };
 
 function Footer({ children }) {
@@ -28,19 +28,15 @@ function Footer({ children }) {
 
       <div style={style}>
         {children}
-        <Link to="/Profile">
-        <i class="material-icons">
-account_circle
-</i>
-</Link>
+        <Link to="/AboutMe">
+          <i class="material-icons">info</i>
+        </Link>
         <Link to="/">
           <i class="material-icons md-60">home</i>
         </Link>
         <Link to="/Cart">
-        <i class="material-icons">
-shopping_cart
-</i>
-</Link>
+          <i class="material-icons">shopping_cart</i>
+        </Link>
       </div>
     </div>
   );

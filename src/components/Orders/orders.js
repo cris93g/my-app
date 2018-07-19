@@ -17,8 +17,9 @@ class Orders extends Component {
 
         <div className="orders-map">
           {this.props.orders.map((items, i) => {
-            return items.items_id ? (
-              <div key={i} className="item">
+            console.log(this.props.orders);
+            return items.item_id ? (
+              <div key={i} className="product">
                 <img
                   src={items.img_url}
                   alt={items.name}
@@ -26,7 +27,7 @@ class Orders extends Component {
                 />
                 <p>Item: #{items.item_id}</p>
                 <p>Description: {items.name}</p>
-                <p className="price">Product Price: ${items.price}.00</p>
+                <p className="price">Product Price: {items.price}</p>
               </div>
             ) : null;
           })}
@@ -39,7 +40,7 @@ function mapStateToProps(state) {
   console.log("state from Orders", state);
   return {
     cart: state.cart,
-    products: state.products,
+    items: state.items,
     orders: state.orders
   };
 }

@@ -18,7 +18,9 @@ import "./home.css";
 
 const Home = props => {
   return (
+    
     <div class="Containers">
+    
       <div class="first">
         <div id="laptop">
           <Link to="/Laptop">
@@ -50,7 +52,9 @@ const Home = props => {
           </Link>
         </div>
         <div id="tv">
-          <img class="images" src={require("../IMG/question.jpg")} />
+          <Link to="/FAQ">
+            <img class="images" src={require("../IMG/question.jpg")} />
+          </Link>
         </div>
       </div>
     </div>

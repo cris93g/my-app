@@ -1,15 +1,14 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { getLaptop ,addToCart} from "../../redux/ducks/itemsReducer";
+import { getLaptop, addToCart } from "../../redux/ducks/itemsReducer";
 import { Link } from "react-router-dom";
+import Rating from "../Rating/Rating";
 
 class Items extends Component {
   componentDidMount() {
     this.props.getLaptop();
   }
 
-  
-   
   render() {
     const { isLoading, items } = this.props;
 
@@ -17,7 +16,6 @@ class Items extends Component {
       <p>Loading...</p>
     ) : (
       items.map(item => {
-        
         return (
           <div className="Containers">
             <div className="container">
@@ -36,11 +34,17 @@ class Items extends Component {
                       <li>{item.description}</li>{" "}
                       <li className="price">{item.price}</li>
                       <li>{item.item_id}</li>
+                      <br />
+                      <Rating />
                     </ul>
                     <br />
                     <Link to="/Cart">
-                      <button className="prod-button" onClick={() => this.props.addToCart(item.item_id)}>Buy now!</button>
-                      
+                      <button
+                        className="prod-button"
+                        onClick={() => this.props.addToCart(item.item_id)}
+                      >
+                        Buy now!
+                      </button>
                     </Link>
                   </div>
                 </div>
@@ -56,14 +60,16 @@ class Items extends Component {
   }
 }
 const mapStateToProps = state => {
-  return {items: state.items,
-  cart: state.cart}
+  return {
+    items: state.items,
+    cart: state.cart
+  };
 };
-const mapDispatchToProps= {
-       addToCart: addToCart
-   }
-  
+const mapDispatchToProps = {
+  addToCart: addToCart
+};
+
 export default connect(
   mapStateToProps,
-  { getLaptop, addToCart}
+  { getLaptop, addToCart }
 )(Items);

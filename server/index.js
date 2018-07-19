@@ -6,55 +6,95 @@ const massive = require("massive");
 const { json } = require("body-parser");
 const control = require("./controllers");
 const passport = require("passport");
-const strategy = require("./strat");
+const stripe = require("stripe")("sk_test_TwTTlid3GeOG6YPydOjARw4I");
 
 const app = express();
 app.use(cors());
 app.use(json());
+app.use(require("body-parser").text());
+const { getUser, strat, logout } = require(`${__dirname}/controllers/authCtrl`);
 
-massive(process.env.CONNECTION_STRING).then(dbinstance => {
-  app.set("db", dbinstance);
-});
-
-//auth0
 app.use(
   session({
     secret: process.env.SESSION_SECRET,
     resave: false,
-    saveUninitialized: false
+    saveUninitialized: false,
+    cookie: {
+      maxAge: 100000
+    }
   })
 );
 
+massive(process.env.CONNECTION_STRING).then(dbinstance => {
+  app.set("db", dbinstance);
+});
 app.use(passport.initialize());
 app.use(passport.session());
+passport.use(strat);
 
-passport.use(strategy);
 passport.serializeUser((user, done) => {
-  return done(null, user);
+  const db = app.get("db");
+  db.getUserByAuthid([user.id])
+    .then(response => {
+      if (!response[0]) {
+        db.addUserByAuthid([user.displayName, user.id, user.picture])
+          .then(res => done(null, res[0]))
+          .catch(console.log);
+      } else return done(null, response[0]);
+    })
+    .catch(console.log);
 });
 
-passport.deserializeUser((user, done) => {
-  return done(null, user);
-});
+passport.deserializeUser((user, done) => done(null, user));
+
+app.get("/me", getUser);
 
 app.get(
   "/login",
   passport.authenticate("auth0", {
-    successRedirect: "http://localhost:3000/Home#/",
-    failureRedirect: "/login",
-    failureFlash: true
+    successRedirect: "http://localhost:3000/#/",
+    failureRedirect: "/login"
   })
 );
 
-app.get("/me", (req, res, next) => {
-  if (!req.user) {
-    res.status(500).json({ message: "no user login" });
-  } else {
-    res.status(200).json(req.user);
+//auth0
+// app.use(
+//   session({
+//     secret: process.env.SESSION_SECRET,
+//     resave: false,
+//     saveUninitialized: false
+//   })
+// );
+
+//   const db = app.get("db");
+//   db.getUser({ user_id }).then(responce => {
+//     if (!response[0]) {
+//       db.addUserbyAuth_id({user.displayName,user.id}).then;
+//     }
+//   });
+// });
+
+//   return done(null, user);
+// });
+
+//     failureFlash: true
+//   })
+// );
+
+app.post("/charge", async (req, res) => {
+  try {
+    let { status } = await stripe.charges.create({
+      amount: 2000,
+      currency: "usd",
+      description: "An example charge",
+      source: req.body
+    });
+
+    res.json({ status });
+  } catch (err) {
+    res.status(500).end();
   }
 });
-
-//test
 
 app.get("/api/test", (req, res, next) => {
   res.sendStatus(200);
@@ -67,11 +107,12 @@ app.get("/api/Hardware", control.getHardware);
 app.get("/api/tablet", control.getTablet);
 app.get("/api/acessory", control.getAcessory);
 
-app.get('/api/cart/', control.getItemsOnCart)
-app.post('/api/cart/:item_id',control.addToCart);
-app.delete('/api/cart/:id',control.removeFromCart);
-app.put('/api/cart', control.clearCart);
-
+app.get("/api/cart/", control.getItemsOnCart);
+app.post("/api/cart/:item_id", control.addToCart);
+app.delete("/api/cart/:id", control.removeFromCart);
+app.put("/api/cart", control.clearCart);
+app.get("/api/Orders", control.getItemsOnOrders);
+app.post("/api/Orders", control.createOrderOnCart);
 
 const PORT = process.env.PORT || 3001;
 app.listen(PORT, () => {

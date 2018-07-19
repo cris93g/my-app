@@ -2,7 +2,7 @@ module.exports = {
   getItems(req, res) {
     const db = req.app.get("db");
     db.getItems()
-      
+
       .then(items => res.status(200).json(items))
       .catch(console.log);
   },
@@ -42,43 +42,63 @@ module.exports = {
       .catch(err => res.status(500).send({ getAcessoryERROR: err }));
   },
 
-
   addToCart: (req, res, next) => {
-    const db = req.app.get('db');
-    const {item_id} = req.params;
+    const db = req.app.get("db");
+    const { item_id } = req.params;
     db.addToCart([item_id])
-    .then(response => {
-        res.status(200).send(response)
-    }).catch(err => res.status(500).send(err));
-},
- 
+      .then(response => {
+        res.status(200).send(response);
+      })
+      .catch(err => res.status(500).send(err));
+  },
 
   getItemsOnCart: (req, res, next) => {
-    const db = req.app.get('db');
-    const {item_id} = req.params
+    const db = req.app.get("db");
+    const { item_id } = req.params;
     db.readCartItem([item_id])
-    .then(response => {
-        res.status(200).send(response)
-    }).catch(err => res.status(500).send(err));
-},
+      .then(response => {
+        res.status(200).send(response);
+      })
+      .catch(err => res.status(500).send(err));
+  },
 
-removeFromCart: (req, res, next) => {
-  const db = req.app.get('db');
-  const {id} = req.params;
-  console.log('testing the delete')
-  db.deleteFromCart([id])
-  .then(response => {
-      res.status(200).send(response)
-  }).catch(err => res.status(500).send(err));
-},
-clearCart: (req, res, next) => {
-  console.log('testing the cart clear');
-  const db = req.app.get('db');
-  console.log('req.body', req.body);
-  
-  db.clearCart()
-  .then(response => {
-      res.status(200).send(response)
-  }).catch(err => res.status(500).send(err));
-}
+  removeFromCart: (req, res, next) => {
+    const db = req.app.get("db");
+    const { id } = req.params;
+    console.log("testing the delete");
+    db.deleteFromCart([id])
+      .then(response => {
+        res.status(200).send(response);
+      })
+      .catch(err => res.status(500).send(err));
+  },
+  clearCart: (req, res, next) => {
+    console.log("testing the cart clear");
+    const db = req.app.get("db");
+    console.log("req.body", req.body);
+
+    db.clearCart()
+      .then(response => {
+        res.status(200).send(response);
+      })
+      .catch(err => res.status(500).send(err));
+  },
+  getItemsOnOrders: (req, res, next) => {
+    const db = req.app.get("db");
+    const { item_id, orderid } = req.body;
+    db.readOrderItems([item_id, orderid])
+      .then(response => {
+        res.status(200).send(response);
+      })
+      .catch(err => res.status(500).send(err));
+  },
+  createOrderOnCart: (req, res, next) => {
+    const db = req.app.get("db");
+    const { item_id } = req.body;
+    db.createOrder([item_id])
+      .then(response => {
+        res.status(200).send(response);
+      })
+      .catch(err => res.status(500).send(err));
+  }
 };

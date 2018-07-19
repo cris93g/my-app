@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import { getItems } from "../../redux/ducks/itemsReducer";
 import { Link } from "react-router-dom";
 import "./items.css";
+import { Button } from "react-bootstrap";
 
 class Items extends Component {
   componentDidMount() {
@@ -10,14 +11,12 @@ class Items extends Component {
   }
   render() {
     const { isLoading, items } = this.props;
-    
 
     const itemsDisplay = isLoading ? (
       <p>Loading...</p>
     ) : (
       items.map(item => {
         return (
-            
           <div className="Containers">
             <div className="container">
               <div className="card-container">
@@ -28,18 +27,16 @@ class Items extends Component {
                     </div>
                     <div className="card-body">
                       <p>{item.name}</p>
-                      
                     </div>
                   </div>
                   <div className="back">
                     <ul>
                       <li>{item.description}</li>{" "}
-                    
                       <li className="price">{item.price}</li>
                     </ul>
-                    <br />
+
                     <Link to="/Cart">
-                      <button>Buy now!</button>
+                      <Button>Buy now!</Button>
                     </Link>
                   </div>
                 </div>
