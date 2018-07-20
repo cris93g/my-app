@@ -6,9 +6,11 @@ const massive = require("massive");
 const { json } = require("body-parser");
 const control = require("./controllers");
 const passport = require("passport");
+const path = require("path");
 const stripe = require("stripe")("sk_test_TwTTlid3GeOG6YPydOjARw4I");
-app.use(express.static(__dirname + "/../build"));
 const app = express();
+app.use(express.static(__dirname + "/../build"));
+
 app.use(cors());
 app.use(json());
 app.use(require("body-parser").text());
@@ -52,34 +54,12 @@ app.get("/me", getUser);
 app.get(
   "/login",
   passport.authenticate("auth0", {
-    successRedirect: "http://localhost:3000/#/",
+    // successRedirect: "/",
+    // successRedirect: "http://localhost:3000/#/",
+    successRedirect: "/#/",
     failureRedirect: "/login"
   })
 );
-
-//auth0
-// app.use(
-//   session({
-//     secret: process.env.SESSION_SECRET,
-//     resave: false,
-//     saveUninitialized: false
-//   })
-// );
-
-//   const db = app.get("db");
-//   db.getUser({ user_id }).then(responce => {
-//     if (!response[0]) {
-//       db.addUserbyAuth_id({user.displayName,user.id}).then;
-//     }
-//   });
-// });
-
-//   return done(null, user);
-// });
-
-//     failureFlash: true
-//   })
-// );
 
 app.post("/charge", async (req, res) => {
   try {
@@ -115,6 +95,10 @@ app.get("/api/Orders", control.getItemsOnOrders);
 app.post("/api/Orders", control.createOrderOnCart);
 
 const PORT = process.env.PORT || 3001;
+
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, ">./build/index.html"));
+});
 app.listen(PORT, () => {
   console.log(`EYYY LETS GO IM AT PORT ${PORT}`);
 });
