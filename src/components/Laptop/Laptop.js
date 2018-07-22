@@ -33,9 +33,6 @@ class Items extends Component {
                     <ul>
                       <li>{item.description}</li>{" "}
                       <li className="price">{item.price}</li>
-                      <li>{item.item_id}</li>
-                      <br />
-                      <Rating />
                     </ul>
                     <br />
                     <Link to="/Cart">

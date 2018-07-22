@@ -20,12 +20,15 @@ class Cart extends Component {
     super(props);
 
     this.handleClick = this.handleClick.bind(this);
+    this.handleClicks = this.handleClicks.bind(this);
   }
   componentDidMount() {
     this.props.readCartItems();
   }
   handleClick() {
     this.props.createOrders();
+  }
+  handleClicks() {
     this.props.clearCart();
   }
 
@@ -64,16 +67,19 @@ class Cart extends Component {
         </div>
         <div className="order-button">
           <Link to="/Cart">
-            <Button onClick={this.handleClick}>Clear cart</Button>
+            <Button onClick={this.handleClicks}>Clear cart</Button>
           </Link>
-          <StripeProvider apiKey="pk_test_LwL4RUtinpP3PXzYirX2jNfR">
-            <div className="example">
-              <h1>CHECKOUT</h1>
-              <Elements>
+          {/* <StripeProvider apiKey="pk_test_LwL4RUtinpP3PXzYirX2jNfR"> */}
+          <div className="example">
+            <h1>CHECKOUT</h1>
+            <Link to="/Orders">
+              <Button onClick={this.handleClick}>Purchase</Button>
+            </Link>
+            {/* <Elements>
                 <StripeCheckoutForm />
-              </Elements>
-            </div>
-          </StripeProvider>
+              </Elements> */}
+          </div>
+          {/* </StripeProvider> */}
         </div>
       </div>
     );

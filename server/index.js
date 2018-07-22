@@ -9,6 +9,7 @@ const passport = require("passport");
 const path = require("path");
 const stripe = require("stripe")("sk_test_TwTTlid3GeOG6YPydOjARw4I");
 const app = express();
+
 app.use(express.static(__dirname + "/../build"));
 
 app.use(cors());
@@ -55,8 +56,8 @@ app.get(
   "/login",
   passport.authenticate("auth0", {
     // successRedirect: "/",
-    // successRedirect: "http://localhost:3000/#/",
-    successRedirect: "/#/",
+    successRedirect: "http://localhost:3000/#/",
+    // successRedirect: "/#/",
     failureRedirect: "/login"
   })
 );

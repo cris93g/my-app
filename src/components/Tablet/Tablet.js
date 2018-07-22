@@ -32,7 +32,7 @@ class Items extends Component {
                       <li>{item.description}</li>{" "}
                       <li className="price">{item.price}</li>
                     </ul>
-                    <br />
+
                     <Link to="/Cart">
                       <button
                         className="prod-button"

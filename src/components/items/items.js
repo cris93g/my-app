@@ -17,27 +17,29 @@ class Items extends Component {
     ) : (
       items.map(item => {
         return (
-          <div className="Containers">
-            <div className="container">
-              <div className="card-container">
-                <div className="card">
-                  <div className="front">
-                    <div className="card-img">
-                      <img src={item.img_url} />
+          <div>
+            <div className="Containers">
+              <div className="container">
+                <div className="card-container">
+                  <div className="card">
+                    <div className="front">
+                      <div className="card-img">
+                        <img src={item.img_url} />
+                      </div>
+                      <div className="card-body">
+                        <p>{item.name}</p>
+                      </div>
                     </div>
-                    <div className="card-body">
-                      <p>{item.name}</p>
-                    </div>
-                  </div>
-                  <div className="back">
-                    <ul>
-                      <li>{item.description}</li>{" "}
-                      <li className="price">{item.price}</li>
-                    </ul>
+                    <div className="back">
+                      <ul>
+                        <li>{item.description}</li>{" "}
+                        <li className="price">{item.price}</li>
+                      </ul>
 
-                    <Link to="/Cart">
-                      <Button>Buy now!</Button>
-                    </Link>
+                      <Link to="/Cart">
+                        <Button>Buy now!</Button>
+                      </Link>
+                    </div>
                   </div>
                 </div>
               </div>

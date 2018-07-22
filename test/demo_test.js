@@ -1,7 +1,10 @@
-const { expect } = require("chai");
+import React from "react";
+import expect from "expect";
+import { shallow } from "enzyme";
+import { createOrders } from "../src/redux/ducks/itemsReducer";
 
-describe("hello world", () => {
-  it("works!", () => {
-    expect(true).to.be.true;
+describe("component:createOrders", () => {
+  it("creates orders well", () => {
+    expect(shallow(<createOrders />));
   });
 });
