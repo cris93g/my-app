@@ -3,6 +3,7 @@ import React from "react";
 const Faq = props => {
   return (
     <div>
+      <h2>F.A.Q</h2>
       <ol>
         <li />
         <li>

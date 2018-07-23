@@ -1,9 +1,11 @@
-
-
-#root > div > div:nth-child(4) > div:nth-child(2) > a:nth-child(1) > i{
-    margin-right: 80px;
+#root > div > div:nth-child(4) > div:nth-child(2) > a:nth-child(1) > i {
+  margin-right: 80px;
 }
 
-#root > div > div:nth-child(4) > div:nth-child(2) > a:nth-child(3) > i{
-    margin-left: 80px;
+#root > div > div:nth-child(4) > div:nth-child(2) > a:nth-child(3) > i {
+  margin-left: 80px;
+}
+
+@media only screen and (min-device-width: 900px) {
+  display: none;
 }

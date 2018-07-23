@@ -2,6 +2,7 @@ import React from "react";
 
 import { Link } from "react-router-dom";
 import "./footer.css";
+import styled from "styled-components";
 var style = {
   backgroundColor: "white",
   borderTop: "1px solid silver",
@@ -21,6 +22,11 @@ var phantom = {
   // width: "100%"
 };
 
+// const Hide = styled.section`
+// @media (min-width: 840px) {
+//  display:hide;
+// `;
+
 function Footer({ children }) {
   return (
     <div>
@@ -28,7 +34,7 @@ function Footer({ children }) {
 
       <div style={style}>
         {children}
-        <Link to="/AboutMe">
+        <Link to="/FAQ">
           <i class="material-icons">info</i>
         </Link>
         <Link to="/">
