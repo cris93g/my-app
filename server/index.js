@@ -9,7 +9,7 @@ const passport = require("passport");
 const path = require("path");
 const stripe = require("stripe")("sk_test_TwTTlid3GeOG6YPydOjARw4I");
 const app = express();
-
+const PORT = process.env.PORT || 3001;
 app.use(express.static(__dirname + "/../build"));
 
 app.use(cors());
@@ -55,8 +55,8 @@ app.get("/me", getUser);
 app.get(
   "/login",
   passport.authenticate("auth0", {
-    // successRedirect: "/",
-    successRedirect: "http://localhost:3000/#/",
+    successRedirect: "/",
+    // successRedirect: "http://localhost:3000/#/",
     // successRedirect: "/#/",
     failureRedirect: "/login"
   })
@@ -94,8 +94,6 @@ app.delete("/api/cart/:id", control.removeFromCart);
 app.put("/api/cart", control.clearCart);
 app.get("/api/Orders", control.getItemsOnOrders);
 app.post("/api/Orders", control.createOrderOnCart);
-
-const PORT = process.env.PORT || 3001;
 
 app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname, ">./build/index.html"));
