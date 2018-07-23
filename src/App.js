@@ -19,12 +19,13 @@ class App extends Component {
         <Router>
           <div className="App">
             <Navbar />
+
             <Link to="/login">
-              <img
+              {/* <img
                 className="img"
                 alt="banner"
                 src={require("./components/IMG/banner.jpg")}
-              />
+              /> */}
             </Link>
             {/* <Animation /> */}
             {routes}

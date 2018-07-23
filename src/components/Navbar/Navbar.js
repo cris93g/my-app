@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 import "./Navbar.css";
 import { connect } from "react-redux";
 import { getUser } from "../../redux/ducks/itemsReducer";
-import Logo from "../IMG/logo.png";
 
 export default class CustomNavbar extends Component {
   componentDidMount() {
@@ -23,14 +22,14 @@ export default class CustomNavbar extends Component {
         <Navbar.Collapse>
           <Nav>
             <NavItem eventKey={1} href="#">
-              <Link to="/FrontPage"> Home</Link>
+              <Link to="/login"> Home</Link>
             </NavItem>
 
-            {/* <NavItem eventKey={2} href="#"> */}
+            <NavItem eventKey={2} href="#">
             <Link to="/All">Items</Link>
-            {/* </NavItem> */}
+            </NavItem>
           </Nav>
-          <Nav pullRight>
+          <Nav pullright>
             <NavItem eventKey={1} href="#">
               <Link to="/Cart">My Cart</Link>
             </NavItem>

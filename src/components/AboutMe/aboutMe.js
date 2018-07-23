@@ -21,7 +21,7 @@ const AboutMe = props => {
           <li>Massive</li>
           <li>Express</li>
           <li>Postgresql</li>
-          <li>scss</li>
+          <li>Css</li>
         </ul>
       </p>
     </div>

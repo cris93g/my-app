@@ -22,3 +22,11 @@ nav.navbar .navbar-default {
 #root > div > nav > div > div.navbar-header > a {
   margin-left: -60px;
 }
+
+@media only screen and (min-device-width: 1000px){
+  #root > div > nav > div > div.navbar-header > a {
+    margin-left: -90px;
+    
+  }
+
+}

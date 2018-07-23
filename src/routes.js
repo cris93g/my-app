@@ -10,7 +10,7 @@ import Hardware from "./components/Hardware/Hardware";
 import Acessory from "./components/Acessory/Acessory";
 import Tablet from "./components/Tablet/Tablet";
 import Orders from "./components/Orders/Orders";
-import AboutMe from "./components/AboutMe/aboutMe";
+import AboutMe from "./components/AboutMe/AboutMe";
 import Faq from "./components/FAQ/faq";
 import Login from "./components/login/Login";
 
