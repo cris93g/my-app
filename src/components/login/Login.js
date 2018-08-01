@@ -1,16 +1,29 @@
 import React, { Fragment } from "react";
-
+import banner from "../IMG/new.png";
 import "./Login.css";
+import { Link } from "react-router-dom";
 import { Button } from "react-bootstrap";
+import styled from "styled-components";
+const Wrapper = styled.section`
+  background-color: #69e9f5;
+  height: 100%;
+  width: 100%;
+`;
 
 const Login = () => (
-  <Fragment>
-    {/* <img className="img" alt="banner" src={require("../IMG/logo.png")} /> */}
-    <h2>Join the Community Today</h2>
-    <a href={process.env.REACT_APP_LOGIN}>
-      <Button>Login</Button>
-    </a>
-  </Fragment>
+  <Wrapper>
+    <Fragment>
+      <img className="img" alt="banner" src={require("../IMG/new.png")} />
+      <h2>Experience Greatness</h2>
+      <h2>Join the Community Today</h2>
+      <br />
+      <Link to="/home">
+        <Button>Login</Button>
+      </Link>
+      <br />
+      <br />
+    </Fragment>
+  </Wrapper>
 );
 
 export default Login;

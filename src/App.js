@@ -4,7 +4,7 @@ import { Provider } from "react-redux";
 import store from "./redux/store";
 import { HashRouter as Router, Link } from "react-router-dom";
 import routes from "./routes";
-// import banner from "./components/img/banner.jpg"
+
 import Items from "./components/items/items";
 import Footer from "./components/footer/footer";
 import Navbar from "./components/Navbar/Navbar";
@@ -24,7 +24,7 @@ class App extends Component {
               {/* <img
                 className="img"
                 alt="banner"
-                src={require("./components/IMG/banner.jpg")}
+                src={require("./components/IMG/frontpage.png")}
               /> */}
             </Link>
             {/* <Animation /> */}

@@ -37,7 +37,7 @@ function Footer({ children }) {
         <Link to="/FAQ">
           <i class="material-icons">info</i>
         </Link>
-        <Link to="/">
+        <Link to="/home">
           <i class="material-icons md-60">home</i>
         </Link>
         <Link to="/Cart">

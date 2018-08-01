@@ -30,12 +30,12 @@ const Faq = props => {
 
         <li>
           <h4>What are my payment options?</h4>
-          At Micro Center stores and Micro Center Online, you can shop using
-          your American Express Card, DiscoverCard, MasterCard, VISA, Micro
-          Center Credit Card and debit cards. Personal checks are accepted at
-          Micro Center; stores, provided adequate identification is available.
-          "Starter" checks are not accepted. Micro Center stores do NOT accept
-          personal or business checks drawn on foreign checking accounts.
+          you can shop using your American Express Card, DiscoverCard,
+          MasterCard, VISA, DigitalBuy Credit Card and debit cards. Personal
+          checks are accepted at DigitalBuy; stores, provided adequate
+          identification is available. "Starter" checks are not accepted. Stores
+          do NOT accept personal or business checks drawn on foreign checking
+          accounts.
         </li>
         <li>
           <h4>What is your return policy?</h4>
@@ -54,9 +54,9 @@ const Faq = props => {
         </li>
         <li>
           <h4>
-            Which web browsers are recommended for viewing microcenter.com?
+            Which web browsers are recommended for viewing DigitalBuy.net?
           </h4>
-          Micro Center Online works with most popular browsers on PC and Mac
+          DigitalBuy Online works with most popular browsers on PC and Mac
           including Firefox 10 or higher, Internet Explorer 8 or higher, or
           other compatible browsers that support JavaScript, cookies and Secure
           Sockets Layer protocol (SSL). Using older browsers, non-compatible

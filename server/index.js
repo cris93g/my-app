@@ -55,7 +55,7 @@ app.get("/me", getUser);
 app.get(
   "/login",
   passport.authenticate("auth0", {
-    successRedirect: "/",
+    // successRedirect: "/",
     // successRedirect: "http://localhost:3000/#/",
     // successRedirect: "/#/",
     failureRedirect: "/login"

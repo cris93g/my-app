@@ -18,8 +18,8 @@ import FrontPage from "./components/frontPage/FrontPage";
 
 export default (
   <Switch>
-    <Route component={Home} exact path="/" />
-    <Route component={Login} path="/login" />
+    <Route component={Login} exact path="/" />
+    <Route component={Home} path="/home" />
     <Route component={FrontPage} path="/frontpage" />
     {/* <Route path="*" render={() => <div>404 NOT TODAY</div>} /> */}
     <Route component={Faq} path="/FAQ" />
